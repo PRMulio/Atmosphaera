@@ -21,7 +21,7 @@
                     "latinName": "portus magnus"
                 },
                 {
-                    "modernName": "ávila",
+                    "modernName": "avila",
                     "latinName": "obila"
                 },
                 {
@@ -37,7 +37,7 @@
                     "latinName": "palma"
                 },
                 {
-                    "modernName": "cáceres",
+                    "modernName": "caceres",
                     "latinName": "norba caesarina"
                 },
                 {
@@ -45,7 +45,7 @@
                     "latinName": "gades"
                 },
                 {
-                    "modernName": "castellón de la plana",
+                    "modernName": "castellon de la plana",
                     "latinName": "castellum"
                 },
                 {
@@ -73,7 +73,7 @@
                     "latinName": "iliberri"
                 },
                 {
-                    "modernName": "san sebastián",
+                    "modernName": "san sebastian",
                     "latinName": "sanctus sebastianus"
                 },
                 {
@@ -85,15 +85,15 @@
                     "latinName": "osca"
                 },
                 {
-                    "modernName": "jaén",
+                    "modernName": "jaen",
                     "latinName": "gaiena"
                 },
                 {
-                    "modernName": "león",
+                    "modernName": "leon",
                     "latinName": "legionem"
                 },
                 {
-                    "modernName": "lérida",
+                    "modernName": "lerida",
                     "latinName": "llerda"
                 },
                 {
@@ -109,7 +109,7 @@
                     "latinName": "matritum"
                 },
                 {
-                    "modernName": "málaga",
+                    "modernName": "malaga",
                     "latinName": "malaca"
                 },
                 {
@@ -186,7 +186,7 @@
                 },
                 {
                     "modernName": "bilbao",
-                    "latinName": "biluao"
+                    "latinName": "bilubatum"
                 },
                 {
                     "modernName": "zamora",
@@ -194,7 +194,7 @@
                 },
                 {
                     "modernName": "zaragoza",
-                    "latinName": "caesar augusta"
+                    "latinName": "caesaraugusta"
                 },
                 {
                     "modernName": "ceuta",
@@ -219,7 +219,7 @@
             "country": "fr",
             "cities": [
                 {
-                    "modernName": "parís",
+                    "modernName": "paris",
                     "latinName": "lutetia"
                 }
             ]

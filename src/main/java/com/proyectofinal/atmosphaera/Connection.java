@@ -136,9 +136,7 @@ public class Connection {
             //System.out.println("Unix time: " + epoch);
             System.out.println("WeatherID es " + weatherCode);
             System.out.println("Time is " + time);
-            System.out.println("Date is " + date);
-            
-            System.out.println(calculateRomanDate(date));
+            System.out.println("Date is " + calculateRomanDate(date));
 
             //city.setTime(city.retrieveTime(timezone));
             //city.setDate(city.retrieveDate(epoch));
@@ -153,7 +151,7 @@ public class Connection {
             city.setLatinName("(" + capitalizeString(city.getLatinName()) + ")");
             city.setSunrise(sunrise1);
             city.setSunset(sunset1);
-            city.setDate(date);
+            city.setDate(calculateRomanDate(date));
             city.setTime(time);
 
         } catch (MalformedURLException ex) {

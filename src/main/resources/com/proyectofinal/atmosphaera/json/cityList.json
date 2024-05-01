@@ -1,0 +1,247 @@
+{
+    "continent": "europe",
+    "countries": [
+        {
+            "country": "es",
+            "cities": [
+                {
+                    "modernName": "vitoria",
+                    "latinName": "victoriacum"
+                },
+                {
+                    "modernName": "albacete",
+                    "latinName": "alba civitas"
+                },
+                {
+                    "modernName": "alicante",
+                    "latinName": "lucentum"
+                },
+                {
+                    "modernName": "almería",
+                    "latinName": "portus magnus"
+                },
+                {
+                    "modernName": "ávila",
+                    "latinName": "obila"
+                },
+                {
+                    "modernName": "badajoz",
+                    "latinName": "vadum clausum"
+                },
+                {
+                    "modernName": "barcelona",
+                    "latinName": "barcino"
+                },
+                {
+                    "modernName": "palma de mallorca",
+                    "latinName": "palma"
+                },
+                {
+                    "modernName": "cáceres",
+                    "latinName": "norba caesarina"
+                },
+                {
+                    "modernName": "cadiz",
+                    "latinName": "gades"
+                },
+                {
+                    "modernName": "castellón de la plana",
+                    "latinName": "castellum"
+                },
+                {
+                    "modernName": "ciudad real",
+                    "latinName": ""
+                },
+                {
+                    "modernName": "cordoba",
+                    "latinName": "corduba"
+                },
+                {
+                    "modernName": "la coruña",
+                    "latinName": "acrunia"
+                },
+                {
+                    "modernName": "cuenca",
+                    "latinName": "conca"
+                },
+                {
+                    "modernName": "gerona",
+                    "latinName": "gerunda"
+                },
+                {
+                    "modernName": "granada",
+                    "latinName": "iliberri"
+                },
+                {
+                    "modernName": "san sebastián",
+                    "latinName": "sanctus sebastianus"
+                },
+                {
+                    "modernName": "huelva",
+                    "latinName": "onoba"
+                },
+                {
+                    "modernName": "huesca",
+                    "latinName": "osca"
+                },
+                {
+                    "modernName": "jaén",
+                    "latinName": "gaiena"
+                },
+                {
+                    "modernName": "león",
+                    "latinName": "legionem"
+                },
+                {
+                    "modernName": "lérida",
+                    "latinName": "llerda"
+                },
+                {
+                    "modernName": "logroño",
+                    "latinName": "illo gronio"
+                },
+                {
+                    "modernName": "lugo",
+                    "latinName": "lucus"
+                },
+                {
+                    "modernName": "madrid",
+                    "latinName": "matritum"
+                },
+                {
+                    "modernName": "málaga",
+                    "latinName": "malaca"
+                },
+                {
+                    "modernName": "murcia",
+                    "latinName": "myrtea"
+                },
+                {
+                    "modernName": "pamplona",
+                    "latinName": "pompelon"
+                },
+                {
+                    "modernName": "orense",
+                    "latinName": "auriensis"
+                },
+                {
+                    "modernName": "oviedo",
+                    "latinName": "urbs vetus"
+                },
+                {
+                    "modernName": "palencia",
+                    "latinName": "pallantia"
+                },
+                {
+                    "modernName": "las palmas de gran canaria",
+                    "latinName": "palmi canarii"
+                },
+                {
+                    "modernName": "pontevedra",
+                    "latinName": "pontem veteram"
+                },
+                {
+                    "modernName": "salamanca",
+                    "latinName": "salmantica"
+                },
+                {
+                    "modernName": "santa cruz de tenerife",
+                    "latinName": "tenerifis"
+                },
+                {
+                    "modernName": "santander",
+                    "latinName": "sancti emetherii"
+                },
+                {
+                    "modernName": "segovia",
+                    "latinName": "secobia"
+                },
+                {
+                    "modernName": "sevilla",
+                    "latinName": "hispalis"
+                },
+                {
+                    "modernName": "soria",
+                    "latinName": "dauria"
+                },
+                {
+                    "modernName": "tarragona",
+                    "latinName": "tarraco"
+                },
+                {
+                    "modernName": "teruel",
+                    "latinName": "turbula"
+                },
+                {
+                    "modernName": "toledo",
+                    "latinName": "toletum"
+                },
+                {
+                    "modernName": "valencia",
+                    "latinName": "valentia edetanorum"
+                },
+                {
+                    "modernName": "valladolid",
+                    "latinName": "vallis oleti"
+                },
+                {
+                    "modernName": "bilbao",
+                    "latinName": "biluao"
+                },
+                {
+                    "modernName": "zamora",
+                    "latinName": "ocellum duri"
+                },
+                {
+                    "modernName": "zaragoza",
+                    "latinName": "caesar augusta"
+                },
+                {
+                    "modernName": "ceuta",
+                    "latinName": "septem fratres"
+                },
+                {
+                    "modernName": "melilla",
+                    "latinName": "mellitus"
+                }
+            ]
+        },
+        {
+            "country": "it",
+            "cities": [
+                {
+                    "modernName": "roma",
+                    "latinName": "roma"
+                }
+            ]
+        },
+        {
+            "country": "fr",
+            "cities": [
+                {
+                    "modernName": "parís",
+                    "latinName": "lutetia"
+                }
+            ]
+        },
+        {
+            "country": "tr",
+            "cities": [
+                {
+                    "modernName": "estambul",
+                    "latinName": "byzantium"
+                }
+            ]
+        },
+        {
+            "country": "gb",
+            "cities": [
+                {
+                    "modernName": "londres",
+                    "latinName": "londinium"
+                }
+            ]
+        }
+
+    ]
+}

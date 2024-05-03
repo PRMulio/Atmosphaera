@@ -1,0 +1,338 @@
+{
+	"0":{
+		"day":{
+			"descriptionEn":"Sunny",
+			"descriptionEs":"Soleado",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/sun.png"
+		},
+		"night":{
+			"descriptionEn":"Clear",
+			"descriptionEs":"Despejado",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/crescent.png"
+		}
+	},
+	"1":{
+		"day":{
+			"descriptionEn":"Mainly Sunny",
+			"descriptionEs":"Mayormente soleado",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/few_clouds.png"
+		},
+		"night":{
+			"descriptionEn":"Mainly Clear",
+			"descriptionEs":"Mayormente despejado",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/few_clouds_crescent.png"
+		}
+	},
+	"2":{
+		"day":{
+			"descriptionEn":"Partly Cloudy",
+			"descriptionEs":"Parcialmente nublado",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/scattered_clouds.png"
+		},
+		"night":{
+			"descriptionEn":"Partly Cloudy",
+			"descriptionEs":"Parcialmente nublado",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/scattered_clouds.png"
+		}
+	},
+	"3":{
+		"day":{
+			"descriptionEn":"Cloudy",
+			"descriptionEs":"Nublado",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/broken_clouds.png"
+		},
+		"night":{
+			"descriptionEn":"Cloudy",
+			"descriptionEs":"Nublado",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/broken_clouds.png"
+		}
+	},
+	"45":{
+		"day":{
+			"descriptionEn":"Foggy",
+			"descriptionEs":"Niebla",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/mist.png"
+		},
+		"night":{
+			"descriptionEn":"Foggy",
+			"descriptionEs":"Niebla",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/mist.png"
+		}
+	},
+	"48":{
+		"day":{
+			"descriptionEn":"Rime Fog",
+			"descriptionEs":"Escarcha",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/mist.png"
+		},
+		"night":{
+			"descriptionEn":"Rime Fog",
+			"descriptionEs":"Escarcha",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/mist.png"
+		}
+	},
+	"51":{
+		"day":{
+			"descriptionEn":"Light Drizzle",
+			"descriptionEs":"Llovizna ligera",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/light_rain.png"
+		},
+		"night":{
+			"descriptionEn":"Light Drizzle",
+			"descriptionEs":"Llovizna ligera",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/light_rain.png"
+		}
+	},
+	"53":{
+		"day":{
+			"descriptionEn":"Drizzle",
+			"descriptionEs":"Llovizna",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/light_rain.png"
+		},
+		"night":{
+			"descriptionEn":"Drizzle",
+			"descriptionEs":"Llovizna",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/light_rain.png"
+		}
+	},
+	"55":{
+		"day":{
+			"descriptionEn":"Heavy Drizzle",
+			"descriptionEs":"Llovizna fuerte",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/light_rain.png"
+		},
+		"night":{
+			"descriptionEn":"Heavy Drizzle",
+			"descriptionEs":"Llovizna fuerte",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/light_rain.png"
+		}
+	},
+	"56":{
+		"day":{
+			"descriptionEn":"Light Freezing Drizzle",
+			"descriptionEs":"Llovizna ligera congelada",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/light_rain.png"
+		},
+		"night":{
+			"descriptionEn":"Light Freezing Drizzle",
+			"descriptionEs":"Llovizna ligera congelada",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/light_rain.png"
+		}
+	},
+	"57":{
+		"day":{
+			"descriptionEn":"Light freezing rain",
+			"descriptionEs":"Llovizna congelada",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/light_rain.png"
+		},
+		"night":{
+			"descriptionEn":"Light freezing rain",
+			"descriptionEs":"Llovizna congelada",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/light_rain.png"
+		}
+	},
+	"61":{
+		"day":{
+			"descriptionEn":"Light Rain",
+			"descriptionEs":"Lluvia ligera",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/moderate_rain.png"
+		},
+		"night":{
+			"descriptionEn":"Light Rain",
+			"descriptionEs":"Lluvia ligera",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/moderate_rain.png"
+		}
+	},
+	"63":{
+		"day":{
+			"descriptionEn":"Rain",
+			"descriptionEs":"Lluvia",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/moderate_rain.png"
+		},
+		"night":{
+			"descriptionEn":"Rain",
+			"descriptionEs":"Lluvia",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/moderate_rain.png"
+		}
+	},
+	"65":{
+		"day":{
+			"descriptionEn":"Heavy Rain",
+			"descriptionEs":"Lluvia intensa",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/moderate_rain.png"
+		},
+		"night":{
+			"descriptionEn":"Heavy Rain",
+			"descriptionEs":"Lluvia intensa",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/moderate_rain.png"
+		}
+	},
+	"66":{
+		"day":{
+			"descriptionEn":"Light Freezing Rain",
+			"descriptionEs":"Lluvia ligera congelada",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/moderate_rain.png"
+		},
+		"night":{
+			"descriptionEn":"Light Freezing Rain",
+			"descriptionEs":"Lluvia ligera congelada",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/moderate_rain.png"
+		}
+	},
+	"67":{
+		"day":{
+			"descriptionEn":"Freezing rain",
+			"descriptionEs":"Lluvia congelada",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/moderate_rain.png"
+		},
+		"night":{
+			"descriptionEn":"Freezing rain",
+			"descriptionEs":"Lluvia congelada",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/moderate_rain.png"
+		}
+	},
+	"71":{
+		"day":{
+			"descriptionEn":"Light snow",
+			"descriptionEs":"Nieve ligera",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/snow.png"
+		},
+		"night":{
+			"descriptionEn":"Light snow",
+			"descriptionEs":"Nieve ligera",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/snow.png"
+		}
+	},
+	"73":{
+		"day":{
+			"descriptionEn":"Snow",
+			"descriptionEs":"Nieve",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/snow.png"
+		},
+		"night":{
+			"descriptionEn":"Snow",
+			"descriptionEs":"Nieve",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/snow.png"
+		}
+	},
+	"75":{
+		"day":{
+			"descriptionEn":"Heavy Snow",
+			"descriptionEs":"Nieve intensa",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/snow.png"
+		},
+		"night":{
+			"descriptionEn":"Heavy Snow",
+			"descriptionEs":"Nieve intensa",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/snow.png"
+		}
+	},
+	"77":{
+		"day":{
+			"descriptionEn":"Snow Grains",
+			"descriptionEs":"Gránulos de nieve",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/snow.png"
+		},
+		"night":{
+			"descriptionEn":"Snow Grains",
+			"descriptionEs":"Gránulos de nieve",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/snow.png"
+		}
+	},
+	"80":{
+		"day":{
+			"descriptionEn":"Light Showers",
+			"descriptionEs":"Chubascos ligeros",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/moderate_rain.png"
+		},
+		"night":{
+			"descriptionEn":"Light Showers",
+			"descriptionEs":"Chubascos ligeros",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/moderate_rain.png"
+		}
+	},
+	"81":{
+		"day":{
+			"descriptionEn":"Showers",
+			"descriptionEs":"Chubascos",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/moderate_rain.png"
+		},
+		"night":{
+			"descriptionEn":"Showers",
+			"descriptionEs":"Chubascos",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/moderate_rain.png"
+		}
+	},
+	"82":{
+		"day":{
+			"descriptionEn":"Heavy Showers",
+			"descriptionEs":"Chubascos intensos",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/moderate_rain.png"
+		},
+		"night":{
+			"descriptionEn":"Heavy Showers",
+			"descriptionEs":"Chubascos intensos",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/moderate_rain.png"
+		}
+	},
+	"85":{
+		"day":{
+			"descriptionEn":"Light Snow Showers",
+			"descriptionEs":"Chusbascos de nieve ligeros",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/snow.png"
+		},
+		"night":{
+			"descriptionEn":"Light Snow Showers",
+			"descriptionEs":"Chusbascos de nieve ligeros",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/snow.png"
+		}
+	},
+	"86":{
+		"day":{
+			"descriptionEn":"Snow Showers",
+			"descriptionEs":"Chusbascos de nieve",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/snow.png"
+		},
+		"night":{
+			"descriptionEn":"Snow Showers",
+			"descriptionEs":"Chusbascos de nieve",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/snow.png"
+		}
+	},
+	"95":{
+		"day":{
+			"descriptionEn":"Thunderstorm",
+			"descriptionEs":"Tormenta",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/rainstorm.png"
+		},
+		"night":{
+			"descriptionEn":"Thunderstorm",
+			"descriptionEs":"Tormenta",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/rainstorm.png"
+		}
+	},
+	"96":{
+		"day":{
+			"descriptionEn":"Light Thunderstorms With Hail",
+			"descriptionEs":"Tormenta ligera con granizo",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/rainstorm.png"
+		},
+		"night":{
+			"descriptionEn":"Light Thunderstorms With Hail",
+			"descriptionEs":"Tormenta ligera con granizo",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/rainstorm.png"
+		}
+	},
+	"99":{
+		"day":{
+			"descriptionEn":"Thunderstorm With Hail",
+			"descriptionEs":"Tormenta con granizo",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/rainstorm.png"
+		},
+		"night":{
+			"descriptionEn":"Thunderstorm With Hail",
+			"descriptionEs":"Tormenta con granizo",
+			"image":"src/main/resources/com/proyectofinal/atmosphaera/images/rainstorm.png"
+		}
+	}
+}

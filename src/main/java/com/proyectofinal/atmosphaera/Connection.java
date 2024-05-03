@@ -2,14 +2,16 @@ package com.proyectofinal.atmosphaera;
 
 import static com.proyectofinal.atmosphaera.Utilities.capitalizeString;
 import static com.proyectofinal.atmosphaera.Utilities.calculateRomanDate;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+
+import java.io.*;
 import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
-import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.logging.Logger;
+
 import javafx.scene.image.Image;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -44,7 +46,7 @@ public class Connection {
             url = url.concat(city.getModernName());
             System.out.println(url);
 
-            InputStream input = new URL(url).openStream();
+            InputStream input = new URI(url).toURL().openStream();
             InputStreamReader isr = new InputStreamReader(input);
             BufferedReader reader = new BufferedReader(isr);
 
@@ -61,9 +63,11 @@ public class Connection {
             city.setCoordinates(json);
 
         } catch (MalformedURLException ex) {
-            ex.printStackTrace();
+            Logger.getLogger("MalformedURLException");
         } catch (IOException ex) {
-            ex.printStackTrace();
+            Logger.getLogger("IOException");
+        } catch (URISyntaxException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -118,6 +122,8 @@ public class Connection {
             float humidity = current.getFloat("relative_humidity_2m");
             float pressure = current.getFloat("pressure_msl");
             int weatherCode = current.getInt("weather_code");
+            float windSpeed = current.getFloat("wind_speed_10m");
+            float windDegree = current.getFloat("wind_direction_10m");
             String sunrise1 = sunrise.getString(0);
             String sunset1 = sunset.getString(0);
 
@@ -141,23 +147,40 @@ public class Connection {
             //city.setTime(city.retrieveTime(timezone));
             //city.setDate(city.retrieveDate(epoch));
             //city.setDescription(description);
-            city.setDescriptionImage("src/main/resources/com/proyectofinal/atmosphaera/images/sun.png");
+
+            String content = new String(Files.readAllBytes(Paths.get("src/main/resources/com/proyectofinal/atmosphaera/json/descriptions.json")));
+
+            JSONObject jsonDescription = new JSONObject(content);
+            JSONObject jsonDescriptionObject = jsonDescription.getJSONObject(String.valueOf(weatherCode));
+            JSONObject jsonDescriptionObjectN = jsonDescriptionObject.getJSONObject("day");
+            String desc = jsonDescriptionObjectN.getString("descriptionEs");
+            String descImage = jsonDescriptionObjectN.getString("image");
+
+            city.setDescription(desc);
+            city.setDescriptionImage(new Image(new File(descImage).toURI().toString()));
+
             city.setTemp(temp + " C");
             city.setTempMax(tempMax + " C");
             city.setTempMin(tempMin + " C");
+
             city.setHumidity(humidity + "%");
-            city.setPressure(pressure + "mbar");
+
+            city.setWindSpeed(String.valueOf(windSpeed));
+            city.setWindDegree(String.valueOf(windDegree));
+
             city.setModernName(capitalizeString(city.getModernName()));
             city.setLatinName("(" + capitalizeString(city.getLatinName()) + ")");
+
             city.setSunrise(sunrise1);
             city.setSunset(sunset1);
+
             city.setDate(calculateRomanDate(date));
             city.setTime(time);
 
         } catch (MalformedURLException ex) {
-            ex.printStackTrace();
+            Logger.getLogger("MalformedURLException");
         } catch (IOException ex) {
-            ex.printStackTrace();
+            Logger.getLogger("IOException");
         }
 
     }

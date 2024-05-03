@@ -8,11 +8,13 @@ public class Utilities {
 
     public static String capitalizeString(String str) {
 
-        if (str == null || str.length() == 0) {
+        if (str == null || str.isEmpty()) {
             return str;
         }
 
-        String formattedString = str.substring(0, 1).toUpperCase().concat(str.substring(1));
+        String formattedString;
+
+        formattedString = str.substring(0, 1).toUpperCase().concat(str.substring(1));
 
         return formattedString;
     }
@@ -81,46 +83,23 @@ public class Utilities {
 
     public static String calculateMonth(int monthIndex) {
 
-        String month = "";
+        String month;
 
-        switch (monthIndex) {
-            case 1:
-                month = "Ianuarius";
-                break;
-            case 2:
-                month = "Februarius";
-                break;
-            case 3:
-                month = "Martius";
-                break;
-            case 4:
-                month = "Aprilis";
-                break;
-            case 5:
-                month = "Maius";
-                break;
-            case 6:
-                month = "Iunius";
-                break;
-            case 7:
-                month = "Iulius";
-                break;
-            case 8:
-                month = "Augustus";
-                break;
-            case 9:
-                month = "September";
-                break;
-            case 10:
-                month = "October";
-                break;
-            case 11:
-                month = "November";
-                break;
-            case 12:
-                month = "December";
-                break;
-        }
+        month = switch (monthIndex) {
+            case 1 -> "Ianuarius";
+            case 2 -> "Februarius";
+            case 3 -> "Martius";
+            case 4 -> "Aprilis";
+            case 5 -> "Maius";
+            case 6 -> "Iunius";
+            case 7 -> "Iulius";
+            case 8 -> "Augustus";
+            case 9 -> "September";
+            case 10 -> "October";
+            case 11 -> "November";
+            case 12 -> "December";
+            default -> "";
+        };
 
         return month;
     }
@@ -135,36 +114,21 @@ public class Utilities {
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(new SimpleDateFormat("yyyy-MM-dd").parse(date));
             dayOfWeekIndex = calendar.get(Calendar.DAY_OF_WEEK);
-            System.out.println(dayOfWeekIndex);
 
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }
 
-        switch (dayOfWeekIndex) {
-            case 1:
-                dayOfWeek = "Dominicus";
-                break;
-            case 2:
-                dayOfWeek = "Lunae";
-                break;
-            case 3:
-                dayOfWeek = "Martis";
-                break;
-            case 4:
-                dayOfWeek = "Mercurii";
-                break;
-            case 5:
-                dayOfWeek = "Iovis";
-                break;
-            case 6:
-                dayOfWeek = "Veneris";
-                break;
-            case 7:
-                dayOfWeek = "Saturni";
-                break;
-
-        }
+        dayOfWeek = switch (dayOfWeekIndex) {
+            case 1 -> "Dominicus";
+            case 2 -> "Lunae";
+            case 3 -> "Martis";
+            case 4 -> "Mercurii";
+            case 5 -> "Iovis";
+            case 6 -> "Veneris";
+            case 7 -> "Saturni";
+            default -> dayOfWeek;
+        };
 
         return dayOfWeek;
     }
@@ -193,6 +157,6 @@ public class Utilities {
         dayOfWeek = calculateDayOfWeek(regularDate);
 
 
-        return "iem " + dayOfWeek + " " + dayString + " " + monthString + " Anno Domini " + yearString;
+        return "iem " + dayOfWeek + ", " + dayString + " " + monthString + " Anno Domini " + yearString;
     }
 }

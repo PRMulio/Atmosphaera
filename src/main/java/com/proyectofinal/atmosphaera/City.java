@@ -8,6 +8,8 @@ import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+
+import javafx.scene.image.Image;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONTokener;
@@ -23,11 +25,10 @@ public class City {
     private String countryCode;
 
     private String description;
-    private String descriptionImage;
+    private Image descriptionImage;
     private String temp;
     private String tempMin;
     private String tempMax;
-    private String pressure;
     private String humidity;
     private String windSpeed;
     private String windDegree;
@@ -109,11 +110,11 @@ public class City {
         this.description = description;
     }
 
-    public String getDescriptionImage() {
+    public Image getDescriptionImage() {
         return descriptionImage;
     }
 
-    public void setDescriptionImage(String descriptionImage) {
+    public void setDescriptionImage(Image descriptionImage) {
         this.descriptionImage = descriptionImage;
     }
 
@@ -131,14 +132,6 @@ public class City {
 
     public void setTempMax(String tempMax) {
         this.tempMax = tempMax;
-    }
-
-    public String getPressure() {
-        return pressure;
-    }
-
-    public void setPressure(String pressure) {
-        this.pressure = pressure;
     }
 
     public String getHumidity() {

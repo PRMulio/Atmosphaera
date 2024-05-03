@@ -9,7 +9,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import org.json.JSONArray;
@@ -31,7 +30,9 @@ public class MainWindowController implements Initializable {
     @FXML
     private Label labelHumidity;
     @FXML
-    private Label labelPressure;
+    private Label labelWindSpeed;
+    @FXML
+    private Label labelWindDegree;
     @FXML
     private TextField textfieldSearch;
     @FXML
@@ -73,10 +74,6 @@ public class MainWindowController implements Initializable {
         connection = new Connection();
     }
 
-    public void setLabelDate(String date) {
-
-    }
-
     @FXML
     private void buttonRequestClick(ActionEvent event) {
 
@@ -97,7 +94,8 @@ public class MainWindowController implements Initializable {
     }
 
     private void writeData() {
-        //imageDescription.setImage(new Image(city.getDescriptionImage()));
+        System.out.println(city.getDescriptionImage());
+        imageDescription.setImage(city.getDescriptionImage());
         labelDescription.setText(city.getDescription());
         
         labelTemp.setText(city.getTemp());
@@ -105,8 +103,9 @@ public class MainWindowController implements Initializable {
         labelTempMax.setText(city.getTempMax());
         
         labelHumidity.setText(city.getHumidity());
-        
-        labelPressure.setText(city.getPressure());
+
+        labelWindSpeed.setText(city.getWindSpeed());
+        labelWindDegree.setText(city.getWindDegree());
         
         labelModernName.setText(city.getModernName());
         labelLatinName.setText(city.getLatinName());

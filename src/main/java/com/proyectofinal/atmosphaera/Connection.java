@@ -1,20 +1,17 @@
 package com.proyectofinal.atmosphaera;
 
-import static com.proyectofinal.atmosphaera.Utilities.capitalizeString;
-import static com.proyectofinal.atmosphaera.Utilities.calculateRomanDate;
-
 import java.io.*;
-import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.logging.Logger;
+import java.util.Arrays;
 
 import javafx.scene.image.Image;
 import org.json.JSONArray;
 import org.json.JSONObject;
+
+import static com.proyectofinal.atmosphaera.Utilities.*;
 
 public class Connection {
 
@@ -62,26 +59,22 @@ public class Connection {
 
             city.setCoordinates(json);
 
-        } catch (MalformedURLException ex) {
-            Logger.getLogger("MalformedURLException");
-        } catch (IOException ex) {
-            Logger.getLogger("IOException");
-        } catch (URISyntaxException e) {
+        } catch (IOException | URISyntaxException e) {
             throw new RuntimeException(e);
         }
     }
 
-    // Método que devuelve los datos meteorológicos a partir de las coordenadas 
+    // Método que devuelve los datos meteorológicos a partir de las coordenadas
     public void retrieveData(City city) {
 
         String json_string;
 
         try {
             String url;
-            url = URL_DATA.concat(city.getLat()).concat("&").concat(city.getLon());
+            url = URL_DATA.concat(city.getLatitude()).concat("&").concat(city.getLongitude());
             System.out.println(url);
 
-            InputStream input = new URL(url).openStream();
+            InputStream input = new URI(url).toURL().openStream();
             InputStreamReader isr = new InputStreamReader(input);
             BufferedReader reader = new BufferedReader(isr);
 
@@ -105,14 +98,16 @@ public class Connection {
             System.out.println(current);
 
             JSONObject daily = root.getJSONObject("daily");
+            JSONArray weather_code = daily.getJSONArray("weather_code");
             JSONArray temp_2m_max = daily.getJSONArray("temperature_2m_max");
             JSONArray temp_2m_min = daily.getJSONArray("temperature_2m_min");
             JSONArray sunrise = daily.getJSONArray("sunrise");
             JSONArray sunset = daily.getJSONArray("sunset");
+            JSONArray precipitation_probability_max = daily.getJSONArray("precipitation_probability_max");
 
             //JSONObject jsonObjectWeather = jsonArrayWeather.getJSONObject(0);
             //System.out.println(jsonObjectWeather);
-            String dateAndTime = current.getString("time");           
+            String dateAndTime = current.getString("time");
             String date = dateAndTime.substring(0, 10);
             String time = dateAndTime.substring(11, 16);
 
@@ -127,11 +122,22 @@ public class Connection {
             String sunrise1 = sunrise.getString(0);
             String sunset1 = sunset.getString(0);
 
-            sunrise1 = sunrise1.substring(11,16);
+            // Recogemos los datos de la predicción de 5 días
+            Object[] weatherCodeArray = weather_code.toList().toArray();
+            System.out.println("Weather code de mañana " + weatherCodeArray[1]);
+            Object[] tempMaxArray = temp_2m_max.toList().toArray();
+            System.out.println("temp max de mañana " + tempMaxArray[1]);
+            Object[] tempMinArray = temp_2m_min.toList().toArray();
+            System.out.println("temp min de mañana " + tempMinArray[1]);
+            Object[] rainProbabilityArray = precipitation_probability_max.toList().toArray();
+            System.out.println("probabilidad máxima de lluvia mañana " + rainProbabilityArray[1]);
+
+
+            sunrise1 = sunrise1.substring(11, 16);
             System.out.println(sunrise1);
-            sunset1 = sunset1.substring(11,16);
+            sunset1 = sunset1.substring(11, 16);
             System.out.println(sunset1);
-            
+
             //String description = current.getString("description");
             //long epoch = current.getLong("dt");
 
@@ -141,23 +147,43 @@ public class Connection {
             //System.out.println("Current weather: " + description);
             //System.out.println("Unix time: " + epoch);
             System.out.println("WeatherID es " + weatherCode);
-            System.out.println("Time is " + time);
+            System.out.println("Time is " +  time);
             System.out.println("Date is " + calculateRomanDate(date));
 
             //city.setTime(city.retrieveTime(timezone));
             //city.setDate(city.retrieveDate(epoch));
             //city.setDescription(description);
 
-            String content = new String(Files.readAllBytes(Paths.get("src/main/resources/com/proyectofinal/atmosphaera/json/descriptions.json")));
+            /*
+            city.setDayOfWeek1(calculateDayOfWeek(date));
+            city.setDayOfWeek2();
+            city.setDayOfWeek3();
+            city.setDayOfWeek4();
+            city.setDayOfWeek5();*/
 
-            JSONObject jsonDescription = new JSONObject(content);
-            JSONObject jsonDescriptionObject = jsonDescription.getJSONObject(String.valueOf(weatherCode));
-            JSONObject jsonDescriptionObjectN = jsonDescriptionObject.getJSONObject("day");
-            String desc = jsonDescriptionObjectN.getString("descriptionEs");
-            String descImage = jsonDescriptionObjectN.getString("image");
+            city.setDescriptionImage1(new Image(new File(setDescriptionImage(city, (Integer) weatherCodeArray[1])).toURI().toString()));
+            city.setDescriptionImage2(new Image(new File(setDescriptionImage(city, (Integer) weatherCodeArray[2])).toURI().toString()));
+            city.setDescriptionImage3(new Image(new File(setDescriptionImage(city, (Integer) weatherCodeArray[3])).toURI().toString()));
+            city.setDescriptionImage4(new Image(new File(setDescriptionImage(city, (Integer) weatherCodeArray[4])).toURI().toString()));
+            city.setDescriptionImage5(new Image(new File(setDescriptionImage(city, (Integer) weatherCodeArray[5])).toURI().toString()));
 
-            city.setDescription(desc);
-            city.setDescriptionImage(new Image(new File(descImage).toURI().toString()));
+            city.setTempMax1(tempMaxArray[1].toString());
+            city.setTempMax2(tempMaxArray[2].toString());
+            city.setTempMax3(tempMaxArray[3].toString());
+            city.setTempMax4(tempMaxArray[4].toString());
+            city.setTempMax5(tempMaxArray[5].toString());
+
+            city.setTempMin1(tempMinArray[1].toString());
+            city.setTempMin2(tempMinArray[2].toString());
+            city.setTempMin3(tempMinArray[3].toString());
+            city.setTempMin4(tempMinArray[4].toString());
+            city.setTempMin5(tempMinArray[5].toString());
+
+            city.setRainProbability1(rainProbabilityArray[1].toString());
+            city.setRainProbability2(rainProbabilityArray[2].toString());
+            city.setRainProbability3(rainProbabilityArray[3].toString());
+            city.setRainProbability4(rainProbabilityArray[4].toString());
+            city.setRainProbability5(rainProbabilityArray[5].toString());
 
             city.setTemp(temp + " C");
             city.setTempMax(tempMax + " C");
@@ -165,8 +191,8 @@ public class Connection {
 
             city.setHumidity(humidity + "%");
 
-            city.setWindSpeed(String.valueOf(windSpeed));
-            city.setWindDegree(String.valueOf(windDegree));
+            city.setWindSpeed(windSpeed + " km/h");
+            city.setWindDegree(windDegree + " grados");
 
             city.setModernName(capitalizeString(city.getModernName()));
             city.setLatinName("(" + capitalizeString(city.getLatinName()) + ")");
@@ -174,14 +200,30 @@ public class Connection {
             city.setSunrise(sunrise1);
             city.setSunset(sunset1);
 
-            city.setDate(calculateRomanDate(date));
+            String[] dateArray = calculateRomanDate(date);
+            city.setDayOfWeek(dateArray[0]);
+            city.setDay(dateArray[1]);
+            city.setMonth(dateArray[2]);
+            city.setYear(dateArray[3]);
+            System.out.println(Arrays.toString(dateArray));
+
             city.setTime(time);
 
-        } catch (MalformedURLException ex) {
-            Logger.getLogger("MalformedURLException");
-        } catch (IOException ex) {
-            Logger.getLogger("IOException");
+        } catch (IOException | URISyntaxException e) {
+            throw new RuntimeException(e);
         }
+    }
 
+    public String setDescriptionImage(City city, int weatherCode) throws IOException {
+
+            String content = new String(Files.readAllBytes(Paths.get("src/main/resources/com/proyectofinal/atmosphaera/json/descriptions.json")));
+            JSONObject jsonDescription = new JSONObject(content);
+            JSONObject jsonDescriptionObject = jsonDescription.getJSONObject(String.valueOf(weatherCode));
+            JSONObject jsonDescriptionObjectN = jsonDescriptionObject.getJSONObject("day");
+            String desc = jsonDescriptionObjectN.getString("descriptionEs");
+            String descImage = jsonDescriptionObjectN.getString("image");
+            city.setDescription(desc);
+            city.setDescriptionImage(new Image(new File(descImage).toURI().toString()));
+            return descImage;
     }
 }

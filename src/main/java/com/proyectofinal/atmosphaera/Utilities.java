@@ -133,7 +133,9 @@ public class Utilities {
         return dayOfWeek;
     }
 
-    public static String calculateRomanDate(String regularDate) {
+    public static String[] calculateRomanDate(String regularDate) {
+
+        String[] date = new String[4];
 
         int year = Integer.parseInt(regularDate.substring(0, 4));
         int month = Integer.parseInt(regularDate.substring(6, 7));
@@ -142,21 +144,25 @@ public class Utilities {
         String yearString;
         String monthString;
         String dayString;
-        String dayOfWeek;
+        String dayOfWeekString;
 
-        // Year
-        yearString = calculateSingleNumber(year);
-
-        // Month
-        monthString = calculateMonth(month);
+        // Day of week
+        dayOfWeekString = calculateDayOfWeek(regularDate);
+        date[0] = dayOfWeekString;
 
         // Day
         dayString = calculateSingleNumber(day);
+        date[1] = dayString;
 
-        // Day of week
-        dayOfWeek = calculateDayOfWeek(regularDate);
+        // Month
+        monthString = calculateMonth(month);
+        date[2] = monthString;
+
+        // Year
+        yearString = calculateSingleNumber(year);
+        date[3] = yearString;
 
 
-        return "iem " + dayOfWeek + ", " + dayString + " " + monthString + " Anno Domini " + yearString;
+        return date;
     }
 }

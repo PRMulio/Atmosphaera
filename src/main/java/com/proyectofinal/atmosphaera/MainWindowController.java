@@ -3,6 +3,7 @@ package com.proyectofinal.atmosphaera;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -11,6 +12,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -63,6 +67,56 @@ public class MainWindowController implements Initializable {
     private ImageView imageSunrise;
     @FXML
     private ImageView imageSunset;
+    @FXML
+    private TextFlow textflowDate;
+    @FXML
+    private Text textDayOfWeek;
+    @FXML
+    private Text textDay;
+    @FXML
+    private Text textMonth;
+    @FXML
+    private Text textYear;
+    @FXML
+    private ImageView imagePrediction1;
+    @FXML
+    private ImageView imagePrediction2;
+    @FXML
+    private ImageView imagePrediction3;
+    @FXML
+    private ImageView imagePrediction4;
+    @FXML
+    private ImageView imagePrediction5;
+    @FXML
+    private Label labelTempMax1;
+    @FXML
+    private Label labelTempMax2;
+    @FXML
+    private Label labelTempMax3;
+    @FXML
+    private Label labelTempMax4;
+    @FXML
+    private Label labelTempMax5;
+    @FXML
+    private Label labelTempMin1;
+    @FXML
+    private Label labelTempMin2;
+    @FXML
+    private Label labelTempMin3;
+    @FXML
+    private Label labelTempMin4;
+    @FXML
+    private Label labelTempMin5;
+    @FXML
+    private Label labelRainProbability1;
+    @FXML
+    private Label labelRainProbability2;
+    @FXML
+    private Label labelRainProbability3;
+    @FXML
+    private Label labelRainProbability4;
+    @FXML
+    private Label labelRainProbability5;
 
     /**
      * Initializes the controller class.
@@ -72,6 +126,7 @@ public class MainWindowController implements Initializable {
         // TODO
         city = new City();
         connection = new Connection();
+        requestRomeData();
     }
 
     @FXML
@@ -93,28 +148,81 @@ public class MainWindowController implements Initializable {
         writeData();
     }
 
+    private void requestRomeData() {
+        // Al iniciar la aplicación, por defecto se visualizará la información de Roma,
+        // al ser esta ciudad el centro espiritual de la Cristiandad
+        city.setModernName("roma");
+        city.setLatinName("roma");
+        city.setCountryCode("it");
+
+        // Le añadimos el código ISO del país
+        city.addCountryCode();
+
+        // Recogemos las coordenadas X e Y de la ciudad
+        connection.retrieveCoordinates(city);
+
+        // Recogemos los datos meteorológicos
+        connection.retrieveData(city);
+
+        // Los mostramos a través de la interfaz
+        writeData();
+    }
+
     private void writeData() {
         System.out.println(city.getDescriptionImage());
         imageDescription.setImage(city.getDescriptionImage());
         labelDescription.setText(city.getDescription());
-        
+
         labelTemp.setText(city.getTemp());
         labelTempMin.setText(city.getTempMin());
         labelTempMax.setText(city.getTempMax());
-        
+
         labelHumidity.setText(city.getHumidity());
 
         labelWindSpeed.setText(city.getWindSpeed());
         labelWindDegree.setText(city.getWindDegree());
-        
+
         labelModernName.setText(city.getModernName());
         labelLatinName.setText(city.getLatinName());
-        
+
         labelSunrise.setText(city.getSunrise());
         labelSunset.setText(city.getSunset());
-        
+
         labelTime.setText(city.getTime());
-        labelDate.setText(city.getDate());
+
+        textDayOfWeek.setText(city.getDayOfWeek() + " ");
+
+        if (city.getDayOfWeek().equals("Dominicus")) {
+            textDayOfWeek.setFill(Color.RED);
+        }
+
+        textDay.setText(city.getDay() + " ");
+        textMonth.setText(city.getMonth() + " ");
+        textYear.setText(city.getYear());
+
+        imagePrediction1.setImage(city.getDescriptionImage1());
+        imagePrediction2.setImage(city.getDescriptionImage2());
+        imagePrediction3.setImage(city.getDescriptionImage3());
+        imagePrediction4.setImage(city.getDescriptionImage4());
+        imagePrediction5.setImage(city.getDescriptionImage5());
+
+        labelTempMax1.setText(city.getTempMax1());
+        labelTempMax2.setText(city.getTempMax2());
+        labelTempMax3.setText(city.getTempMax3());
+        labelTempMax4.setText(city.getTempMax4());
+        labelTempMax5.setText(city.getTempMax5());
+
+        labelTempMin1.setText(city.getTempMin1());
+        labelTempMin2.setText(city.getTempMin2());
+        labelTempMin3.setText(city.getTempMin3());
+        labelTempMin4.setText(city.getTempMin4());
+        labelTempMin5.setText(city.getTempMin5());
+
+        labelRainProbability1.setText(city.getRainProbability1());
+        labelRainProbability2.setText(city.getRainProbability2());
+        labelRainProbability3.setText(city.getRainProbability3());
+        labelRainProbability4.setText(city.getRainProbability4());
+        labelRainProbability5.setText(city.getRainProbability5());
     }
 
     @FXML

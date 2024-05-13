@@ -138,8 +138,8 @@ public class Utilities {
         String[] date = new String[4];
 
         int year = Integer.parseInt(regularDate.substring(0, 4));
-        int month = Integer.parseInt(regularDate.substring(6, 7));
-        int day = Integer.parseInt(regularDate.substring(9, 10));
+        int month = Integer.parseInt(regularDate.substring(5, 7));
+        int day = Integer.parseInt(regularDate.substring(8, 10));
 
         String yearString;
         String monthString;

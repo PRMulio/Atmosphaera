@@ -194,6 +194,8 @@ public class Connection {
             city.setWindSpeed(windSpeed + " km/h");
             city.setWindDegree(windDegree + " grados");
 
+            city.setRainProbability(rainProbabilityArray[0].toString());
+
             city.setModernName(capitalizeString(city.getModernName()));
             city.setLatinName("(" + capitalizeString(city.getLatinName()) + ")");
 

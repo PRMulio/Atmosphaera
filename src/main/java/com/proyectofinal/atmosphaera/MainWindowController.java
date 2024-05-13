@@ -23,6 +23,7 @@ import org.json.JSONObject;
  *
  * @author Pablo Rodriguez
  */
+
 public class MainWindowController implements Initializable {
 
     //Declaración de instancia de la clase City
@@ -108,6 +109,8 @@ public class MainWindowController implements Initializable {
     @FXML
     private Label labelTempMin5;
     @FXML
+    private Label labelRainProbability;
+    @FXML
     private Label labelRainProbability1;
     @FXML
     private Label labelRainProbability2;
@@ -182,6 +185,8 @@ public class MainWindowController implements Initializable {
         labelWindSpeed.setText(city.getWindSpeed());
         labelWindDegree.setText(city.getWindDegree());
 
+        labelRainProbability.setText(city.getRainProbability() + "%");
+
         labelModernName.setText(city.getModernName());
         labelLatinName.setText(city.getLatinName());
 
@@ -218,11 +223,11 @@ public class MainWindowController implements Initializable {
         labelTempMin4.setText(city.getTempMin4());
         labelTempMin5.setText(city.getTempMin5());
 
-        labelRainProbability1.setText(city.getRainProbability1());
-        labelRainProbability2.setText(city.getRainProbability2());
-        labelRainProbability3.setText(city.getRainProbability3());
-        labelRainProbability4.setText(city.getRainProbability4());
-        labelRainProbability5.setText(city.getRainProbability5());
+        labelRainProbability1.setText(city.getRainProbability1() + " %");
+        labelRainProbability2.setText(city.getRainProbability2() + " %");
+        labelRainProbability3.setText(city.getRainProbability3() + " %");
+        labelRainProbability4.setText(city.getRainProbability4() + " %");
+        labelRainProbability5.setText(city.getRainProbability5() + " %");
     }
 
     @FXML

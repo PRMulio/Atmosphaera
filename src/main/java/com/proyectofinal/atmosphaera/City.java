@@ -3,11 +3,6 @@ package com.proyectofinal.atmosphaera;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.text.SimpleDateFormat;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 import javafx.scene.image.Image;
 import org.json.JSONArray;
@@ -55,7 +50,6 @@ public class City {
     private String windSpeed;
     private String windDegree;
 
-    private String rainAmount;// Cantidad de precipitaciones en mm. Opcional, en caso de lluvia
     private String rainProbability;
 
     private String rainProbability1;
@@ -64,15 +58,10 @@ public class City {
     private String rainProbability4;
     private String rainProbability5;
 
-    private String clouds; // Porcentaje
-
     private String time;
-    private String romanTime;
-
     private String sunrise;
     private String sunset;
 
-    private String moonPhase;
     private String dayOfWeek;
     private String day;
     private String month;
@@ -400,14 +389,6 @@ public class City {
         this.windDegree = windDegree;
     }
 
-    public String getRainAmount() {
-        return rainAmount;
-    }
-
-    public void setRainAmount(String rainAmount) {
-        this.rainAmount = rainAmount;
-    }
-
     public String getRainProbability() {
         return rainProbability;
     }
@@ -416,28 +397,12 @@ public class City {
         this.rainProbability = rainProbability;
     }
 
-    public String getClouds() {
-        return clouds;
-    }
-
-    public void setClouds(String clouds) {
-        this.clouds = clouds;
-    }
-
     public String getTime() {
         return time;
     }
 
     public void setTime(String time) {
         this.time = time;
-    }
-
-    public String getRomanTime() {
-        return romanTime;
-    }
-
-    public void setRomanTime(String romanTime) {
-        this.romanTime = romanTime;
     }
 
     public String getSunrise() {
@@ -454,14 +419,6 @@ public class City {
 
     public void setSunset(String sunset) {
         this.sunset = sunset;
-    }
-
-    public String getMoonPhase() {
-        return moonPhase;
-    }
-
-    public void setMoonPhase(String moonPhase) {
-        this.moonPhase = moonPhase;
     }
 
     public String getDayOfWeek() {
@@ -533,8 +490,8 @@ public class City {
 
             if (countryCode.equals(getCountryCode())) {
 
-                setLatitude("latitude=" + String.valueOf(result.getFloat("latitude")));
-                setLongitude("longitude=" + String.valueOf(result.getFloat("longitude")));
+                setLatitude("latitude=" + (result.getFloat("latitude")));
+                setLongitude("longitude=" + (result.getFloat("longitude")));
 
                 System.out.println("Latitude: " + getLatitude());
                 System.out.println("Longitude: " + getLongitude());

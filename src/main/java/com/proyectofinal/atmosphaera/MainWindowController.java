@@ -14,7 +14,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
-import javafx.scene.text.TextFlow;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -49,8 +48,6 @@ public class MainWindowController implements Initializable {
     @FXML
     private Label labelLatinName;
     @FXML
-    private Label labelDate;
-    @FXML
     private Label labelModernName;
     @FXML
     private Label labelDescription;
@@ -63,14 +60,6 @@ public class MainWindowController implements Initializable {
     @FXML
     private Label labelTime;
     @FXML
-    private Label labelRomanTime;
-    @FXML
-    private ImageView imageSunrise;
-    @FXML
-    private ImageView imageSunset;
-    @FXML
-    private TextFlow textflowDate;
-    @FXML
     private Text textDayOfWeek;
     @FXML
     private Text textDay;
@@ -78,6 +67,16 @@ public class MainWindowController implements Initializable {
     private Text textMonth;
     @FXML
     private Text textYear;
+    @FXML
+    private Label labelDay1;
+    @FXML
+    private Label labelDay2;
+    @FXML
+    private Label labelDay3;
+    @FXML
+    private Label labelDay4;
+    @FXML
+    private Label labelDay5;
     @FXML
     private ImageView imagePrediction1;
     @FXML
@@ -185,7 +184,7 @@ public class MainWindowController implements Initializable {
         labelWindSpeed.setText(city.getWindSpeed());
         labelWindDegree.setText(city.getWindDegree());
 
-        labelRainProbability.setText(city.getRainProbability() + "%");
+        labelRainProbability.setText(city.getRainProbability() + " %");
 
         labelModernName.setText(city.getModernName());
         labelLatinName.setText(city.getLatinName());
@@ -197,6 +196,7 @@ public class MainWindowController implements Initializable {
 
         textDayOfWeek.setText(city.getDayOfWeek() + " ");
 
+        // Setting the color of the day red if it is Sunday
         if (city.getDayOfWeek().equals("Dominicus")) {
             textDayOfWeek.setFill(Color.RED);
         }
@@ -204,6 +204,12 @@ public class MainWindowController implements Initializable {
         textDay.setText(city.getDay() + " ");
         textMonth.setText(city.getMonth() + " ");
         textYear.setText(city.getYear());
+
+        labelDay1.setText(city.getDayOfWeek1());
+        labelDay2.setText(city.getDayOfWeek2());
+        labelDay3.setText(city.getDayOfWeek3());
+        labelDay4.setText(city.getDayOfWeek4());
+        labelDay5.setText(city.getDayOfWeek5());
 
         imagePrediction1.setImage(city.getDescriptionImage1());
         imagePrediction2.setImage(city.getDescriptionImage2());

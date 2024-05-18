@@ -2,6 +2,7 @@ package com.proyectofinal.atmosphaera;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Calendar;
 
 public class Utilities {
@@ -30,54 +31,45 @@ public class Utilities {
                 number -= 1000;
                 continue;
             }
-
             if (number > 499) {
                 romanNumber.append("D");
                 number -= 500;
                 continue;
             }
-
             if (number > 99) {
                 romanNumber.append("C");
                 number -= 100;
                 continue;
             }
-
             if (number > 49) {
                 romanNumber.append("L");
                 number -= 50;
                 continue;
             }
-
             if (number > 9) {
                 romanNumber.append("X");
                 number -= 10;
                 continue;
             }
-
             if (number == 9) {
                 romanNumber.append("IX");
                 number -= 9;
                 continue;
             }
-
             if (number > 4) {
                 romanNumber.append("V");
                 number -= 5;
                 continue;
             }
-
             if (number == 4) {
                 romanNumber.append("IV");
                 number -= 4;
                 continue;
             }
-
             romanNumber.append("I");
             number -= 1;
 
         }
-
         return romanNumber.toString();
     }
 
@@ -104,10 +96,12 @@ public class Utilities {
         return month;
     }
 
-    public static String calculateDayOfWeek(String date) {
+    public static String[] calculateDayOfWeek(String date) {
 
         int dayOfWeekIndex;
-        String dayOfWeek = "";
+        String[] week1 = new String[] {"Dominicus", "Lunae", "Martis", "Mercurii", "Iovis", "Veneris", "Saturnii"};
+        String[] week2 = week1.clone();
+
 
         try {
 
@@ -119,23 +113,18 @@ public class Utilities {
             throw new RuntimeException(e);
         }
 
-        dayOfWeek = switch (dayOfWeekIndex) {
-            case 1 -> "Dominicus";
-            case 2 -> "Lunae";
-            case 3 -> "Martis";
-            case 4 -> "Mercurii";
-            case 5 -> "Iovis";
-            case 6 -> "Veneris";
-            case 7 -> "Saturni";
-            default -> dayOfWeek;
-        };
+        System.out.println("1 " + Arrays.toString(week1));
+        System.arraycopy(week1, dayOfWeekIndex-1, week1, 0, 7-dayOfWeekIndex+1);
+        System.out.println("2 " + Arrays.toString(week1));
+        System.arraycopy(week2, 0, week1, 7-dayOfWeekIndex+1, dayOfWeekIndex-1);
+        System.out.println("3 " + Arrays.toString(week1));
 
-        return dayOfWeek;
+        return week1;
     }
 
     public static String[] calculateRomanDate(String regularDate) {
 
-        String[] date = new String[4];
+        String[] date = new String[10];
 
         int year = Integer.parseInt(regularDate.substring(0, 4));
         int month = Integer.parseInt(regularDate.substring(5, 7));
@@ -144,23 +133,29 @@ public class Utilities {
         String yearString;
         String monthString;
         String dayString;
-        String dayOfWeekString;
+        String[] weekArray;
 
         // Day of week
-        dayOfWeekString = calculateDayOfWeek(regularDate);
-        date[0] = dayOfWeekString;
+        weekArray = calculateDayOfWeek(regularDate);
+        date[0] = weekArray[0];
+        date[1] = weekArray[1];
+        date[2] = weekArray[2];
+        date[3] = weekArray[3];
+        date[4] = weekArray[4];
+        date[5] = weekArray[5];
+        date[6] = weekArray[6];
 
         // Day
         dayString = calculateSingleNumber(day);
-        date[1] = dayString;
+        date[7] = dayString;
 
         // Month
         monthString = calculateMonth(month);
-        date[2] = monthString;
+        date[8] = monthString;
 
         // Year
         yearString = calculateSingleNumber(year);
-        date[3] = yearString;
+        date[9] = yearString;
 
 
         return date;

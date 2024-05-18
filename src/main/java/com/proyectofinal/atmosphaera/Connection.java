@@ -115,8 +115,6 @@ public class Connection {
             float tempMax = temp_2m_max.getFloat(0);
             float tempMin = temp_2m_min.getFloat(0);
             float humidity = current.getFloat("relative_humidity_2m");
-            float pressure = current.getFloat("pressure_msl");
-            int weatherCode = current.getInt("weather_code");
             float windSpeed = current.getFloat("wind_speed_10m");
             float windDegree = current.getFloat("wind_direction_10m");
             String sunrise1 = sunrise.getString(0);
@@ -124,91 +122,98 @@ public class Connection {
 
             // Recogemos los datos de la predicción de 5 días
             Object[] weatherCodeArray = weather_code.toList().toArray();
-            System.out.println("Weather code de mañana " + weatherCodeArray[1]);
             Object[] tempMaxArray = temp_2m_max.toList().toArray();
-            System.out.println("temp max de mañana " + tempMaxArray[1]);
             Object[] tempMinArray = temp_2m_min.toList().toArray();
-            System.out.println("temp min de mañana " + tempMinArray[1]);
             Object[] rainProbabilityArray = precipitation_probability_max.toList().toArray();
-            System.out.println("probabilidad máxima de lluvia mañana " + rainProbabilityArray[1]);
 
-
+            // Hora de amanecer y anochecer
             sunrise1 = sunrise1.substring(11, 16);
             System.out.println(sunrise1);
             sunset1 = sunset1.substring(11, 16);
             System.out.println(sunset1);
+            city.setSunrise(sunrise1);
+            city.setSunset(sunset1);
 
-            //String description = current.getString("description");
-            //long epoch = current.getLong("dt");
-
-            System.out.println("Current temperature: " + temp + "ºC");
-            System.out.println("Current humidity: " + humidity + "%");
-            System.out.println("Current pressure: " + pressure + "mbar");
-            //System.out.println("Current weather: " + description);
-            //System.out.println("Unix time: " + epoch);
-            System.out.println("WeatherID es " + weatherCode);
-            System.out.println("Time is " +  time);
-            System.out.println("Date is " + calculateRomanDate(date));
-
-            //city.setTime(city.retrieveTime(timezone));
-            //city.setDate(city.retrieveDate(epoch));
-            //city.setDescription(description);
-
-            /*
-            city.setDayOfWeek1(calculateDayOfWeek(date));
-            city.setDayOfWeek2();
-            city.setDayOfWeek3();
-            city.setDayOfWeek4();
-            city.setDayOfWeek5();*/
-
+            // 5 day prediction data
+            // Icons
             city.setDescriptionImage1(new Image(new File(setDescriptionImage(city, (Integer) weatherCodeArray[1])).toURI().toString()));
             city.setDescriptionImage2(new Image(new File(setDescriptionImage(city, (Integer) weatherCodeArray[2])).toURI().toString()));
             city.setDescriptionImage3(new Image(new File(setDescriptionImage(city, (Integer) weatherCodeArray[3])).toURI().toString()));
             city.setDescriptionImage4(new Image(new File(setDescriptionImage(city, (Integer) weatherCodeArray[4])).toURI().toString()));
             city.setDescriptionImage5(new Image(new File(setDescriptionImage(city, (Integer) weatherCodeArray[5])).toURI().toString()));
 
+            // Maxixum temperature
             city.setTempMax1(tempMaxArray[1].toString());
             city.setTempMax2(tempMaxArray[2].toString());
             city.setTempMax3(tempMaxArray[3].toString());
             city.setTempMax4(tempMaxArray[4].toString());
             city.setTempMax5(tempMaxArray[5].toString());
 
+            // Minimum temperature
             city.setTempMin1(tempMinArray[1].toString());
             city.setTempMin2(tempMinArray[2].toString());
             city.setTempMin3(tempMinArray[3].toString());
             city.setTempMin4(tempMinArray[4].toString());
             city.setTempMin5(tempMinArray[5].toString());
 
+            // Rain probability
             city.setRainProbability1(rainProbabilityArray[1].toString());
             city.setRainProbability2(rainProbabilityArray[2].toString());
             city.setRainProbability3(rainProbabilityArray[3].toString());
             city.setRainProbability4(rainProbabilityArray[4].toString());
             city.setRainProbability5(rainProbabilityArray[5].toString());
 
+            // Current data
+            // Temperature
             city.setTemp(temp + " C");
             city.setTempMax(tempMax + " C");
             city.setTempMin(tempMin + " C");
 
+            // Humidity
             city.setHumidity(humidity + "%");
 
+            // Wind
+            // Speed
             city.setWindSpeed(windSpeed + " km/h");
-            city.setWindDegree(windDegree + " grados");
 
+            // Direction
+            if (windDegree > 315 || windDegree < 45) {
+                city.setWindDegree("Septentrio (" + windDegree + " grados)");
+            }
+            if (windDegree > 45 && windDegree < 135) {
+                city.setWindDegree("Oriens (" + windDegree + " grados)");
+            }
+            if (windDegree > 135 && windDegree < 225) {
+                city.setWindDegree("Meridio (" + windDegree + " grados)");
+            }
+            if (windDegree > 225 && windDegree < 315) {
+                city.setWindDegree("Occidens (" + windDegree + " grados)");
+            }
+
+            // Rain probability
             city.setRainProbability(rainProbabilityArray[0].toString());
 
+            // City data
+            // Modern name
+
             city.setModernName(capitalizeString(city.getModernName()));
+            // Latin name
             city.setLatinName("(" + capitalizeString(city.getLatinName()) + ")");
 
-            city.setSunrise(sunrise1);
-            city.setSunset(sunset1);
-
+            // Date
             String[] dateArray = calculateRomanDate(date);
             city.setDayOfWeek(dateArray[0]);
-            city.setDay(dateArray[1]);
-            city.setMonth(dateArray[2]);
-            city.setYear(dateArray[3]);
+            city.setDayOfWeek1(dateArray[1]);
+            city.setDayOfWeek2(dateArray[2]);
+            city.setDayOfWeek3(dateArray[3]);
+            city.setDayOfWeek4(dateArray[4]);
+            city.setDayOfWeek5(dateArray[5]);
+            city.setDay(dateArray[7]);
+            city.setMonth(dateArray[8]);
+            city.setYear(dateArray[9]);
             System.out.println(Arrays.toString(dateArray));
 
+            // Current time
             city.setTime(time);
 
         } catch (IOException | URISyntaxException e) {
@@ -218,14 +223,14 @@ public class Connection {
 
     public String setDescriptionImage(City city, int weatherCode) throws IOException {
 
-            String content = new String(Files.readAllBytes(Paths.get("src/main/resources/com/proyectofinal/atmosphaera/json/descriptions.json")));
-            JSONObject jsonDescription = new JSONObject(content);
-            JSONObject jsonDescriptionObject = jsonDescription.getJSONObject(String.valueOf(weatherCode));
-            JSONObject jsonDescriptionObjectN = jsonDescriptionObject.getJSONObject("day");
-            String desc = jsonDescriptionObjectN.getString("descriptionEs");
-            String descImage = jsonDescriptionObjectN.getString("image");
-            city.setDescription(desc);
-            city.setDescriptionImage(new Image(new File(descImage).toURI().toString()));
-            return descImage;
+        String content = new String(Files.readAllBytes(Paths.get("src/main/resources/com/proyectofinal/atmosphaera/json/descriptions.json")));
+        JSONObject jsonDescription = new JSONObject(content);
+        JSONObject jsonDescriptionObject = jsonDescription.getJSONObject(String.valueOf(weatherCode));
+        JSONObject jsonDescriptionObjectN = jsonDescriptionObject.getJSONObject("day");
+        String desc = jsonDescriptionObjectN.getString("descriptionEs");
+        String descImage = jsonDescriptionObjectN.getString("image");
+        city.setDescription(desc);
+        city.setDescriptionImage(new Image(new File(descImage).toURI().toString()));
+        return descImage;
     }
 }

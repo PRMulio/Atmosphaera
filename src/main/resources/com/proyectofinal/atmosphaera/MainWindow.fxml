@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -14,11 +15,14 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1500.0" style="-fx-background-color: #F8F0D0;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.proyectofinal.atmosphaera.MainWindowController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="814.0" prefWidth="1514.0" style="-fx-background-color: #F8F0D0;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.proyectofinal.atmosphaera.MainWindowController">
    <left>
-      <VBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="374.0" spacing="10.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="509.0" prefWidth="374.0" spacing="5.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fx:id="imageDescription" fitHeight="139.0" fitWidth="143.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imageDescription" fitHeight="128.0" fitWidth="133.0" pickOnBounds="true" preserveRatio="true">
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin></ImageView>
             <Label fx:id="labelDescription" prefHeight="38.0" prefWidth="236.0" text="Lluvia ligera">
                <font>
                   <Font name="Seagram tfb" size="24.0" />
@@ -33,11 +37,13 @@
                   <Label prefHeight="38.0" prefWidth="144.0" text="Temperatura:" textFill="#ef8121">
                      <font>
                         <Font name="Seagram tfb" size="24.0" />
-                     </font></Label>
+                     </font>
+                  </Label>
                   <Label fx:id="labelTemp" prefHeight="43.0" prefWidth="78.0" text="25.0 C">
                      <font>
                         <Font name="Seagram tfb" size="24.0" />
-                     </font></Label>
+                     </font>
+                  </Label>
                   <VBox prefHeight="75.0" prefWidth="78.0">
                      <children>
                         <Label fx:id="labelTempMax" prefHeight="38.0" prefWidth="91.0" text="30.0 C" textFill="#df0c0c">
@@ -73,7 +79,7 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="102.0" prefWidth="261.0">
                <children>
-                  <VBox prefHeight="165.0" prefWidth="322.0">
+                  <VBox prefHeight="165.0" prefWidth="373.0">
                      <children>
                         <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
                            <children>
@@ -96,7 +102,7 @@
                                     <Font name="Seagram tfb" size="24.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="labelWindSpeed" text="velocitas km/h">
+                              <Label fx:id="labelWindSpeed" text="100.0 km/h">
                                  <font>
                                     <Font name="Seagram tfb" size="24.0" />
                                  </font>
@@ -113,7 +119,7 @@
                                     <Font name="Seagram tfb" size="24.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="labelWindDegree" text="180">
+                              <Label fx:id="labelWindDegree" text="Occidens (180 grados)">
                                  <font>
                                     <Font name="Seagram tfb" size="24.0" />
                                  </font>
@@ -147,14 +153,17 @@
                </children>
             </HBox>
          </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
       </VBox>
    </left>
    <top>
-      <HBox alignment="CENTER" prefHeight="72.0" prefWidth="891.0" spacing="50.0" BorderPane.alignment="TOP_CENTER">
+      <HBox alignment="CENTER" prefHeight="72.0" prefWidth="891.0" spacing="50.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="72.0" prefWidth="506.0" spacing="30.0" HBox.hgrow="SOMETIMES">
+            <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="72.0" prefWidth="582.0" spacing="15.0">
                <children>
-                  <TextField fx:id="textfieldSearch" onKeyReleased="#textfieldSearchKeyReleased" prefHeight="57.0" prefWidth="280.0" promptText="Explorarent civitatem..." style="-fx-border-color: white; -fx-background-insets: 0;">
+                  <TextField fx:id="textfieldSearch" onKeyReleased="#textfieldSearchKeyReleased" prefHeight="58.0" prefWidth="264.0" promptText="Explorarent civitatem..." style="-fx-border-color: white; -fx-background-insets: 0;">
                      <font>
                         <Font name="Seagram tfb" size="24.0" />
                      </font>
@@ -162,23 +171,34 @@
                         <Cursor fx:constant="TEXT" />
                      </cursor>
                   </TextField>
-                  <Button fx:id="buttonRequest" defaultButton="true" disable="true" mnemonicParsing="false" onAction="#buttonRequestClick" prefHeight="57.0" prefWidth="154.0" style="-fx-background-color: #7EDE82;" text="Sollicitare">
+                  <Button fx:id="buttonRequest" defaultButton="true" disable="true" mnemonicParsing="false" onAction="#buttonRequestClick" prefHeight="58.0" prefWidth="138.0" style="-fx-background-color: #F69399;" text="Sollicitare">
                      <font>
                         <Font name="Seagram tfb" size="26.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                </children>
             </HBox>
-            <HBox alignment="CENTER_RIGHT" prefHeight="72.0" prefWidth="473.0" spacing="30.0" HBox.hgrow="SOMETIMES">
+            <Label alignment="CENTER" prefHeight="72.0" prefWidth="670.0" text="ATMOSPHAERA" textFill="#3ecee4">
+               <font>
+                  <Font name="OptimusPrincepsSemiBold" size="60.0" />
+               </font>
+               <effect>
+                  <InnerShadow height="4.0" radius="1.5" width="4.0" />
+               </effect>
+            </Label>
+            <HBox alignment="CENTER_RIGHT" prefHeight="74.0" prefWidth="551.0" spacing="15.0">
                <children>
-                  <Label fx:id="labelModernName" text="Nombre ciudad">
+                  <Label fx:id="labelModernName" text="Roma">
                      <font>
-                        <Font name="Seagram tfb" size="36.0" />
+                        <Font name="Seagram tfb" size="30.0" />
                      </font>
                   </Label>
-                  <Label fx:id="labelLatinName" text="(Nombre latín)" textFill="#c7bb17">
+                  <Label fx:id="labelLatinName" text="(Roma)" textFill="#c7bb17">
                      <font>
-                        <Font name="Seagram tfb" size="36.0" />
+                        <Font name="Seagram tfb" size="30.0" />
                      </font>
                   </Label>
                </children>
@@ -195,14 +215,14 @@
    <right>
       <VBox alignment="CENTER_RIGHT" prefHeight="584.0" prefWidth="458.0" spacing="25.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER" prefHeight="80.0" prefWidth="376.0" spacing="25.0">
+            <HBox alignment="CENTER" prefHeight="80.0" prefWidth="376.0" spacing="5.0">
                <children>
-                  <Label layoutX="172.0" layoutY="31.0" prefHeight="39.0" prefWidth="114.0" text="Tempus:">
+                  <Label layoutX="172.0" layoutY="31.0" prefHeight="39.0" prefWidth="310.0" text="Hora de útlima actualización:">
                      <font>
                         <Font name="Seagram tfb" size="26.0" />
                      </font>
                   </Label>
-                  <Label fx:id="labelTime" prefHeight="39.0" prefWidth="114.0" text="Hora legal">
+                  <Label fx:id="labelTime" prefHeight="39.0" prefWidth="90.0" text="00:00">
                      <font>
                         <Font name="Seagram tfb" size="26.0" />
                      </font></Label>
@@ -219,7 +239,7 @@
                         </Label>
                         <ImageView fx:id="imageSunrise" fitHeight="105.0" fitWidth="112.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@images/sun.png" />
+                              <Image url="@images/sun_colored.png" />
                            </image></ImageView>
                         <Label fx:id="labelSunrise" text="Amanecer">
                            <font>
@@ -236,7 +256,7 @@
                         </Label>
                         <ImageView fx:id="imageSunset" fitHeight="103.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@images/crescent.png" />
+                              <Image url="@images/crescent_colored.png" />
                            </image></ImageView>
                         <Label fx:id="labelSunset" alignment="CENTER" text="Ocaso">
                            <font>
@@ -257,7 +277,7 @@
                         </Label>
                         <ImageView fx:id="imagePrediction1" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@images/sun.png" />
+                              <Image url="@images/sun_colored.png" />
                            </image>
                         </ImageView>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -283,7 +303,7 @@
                            <children>
                               <ImageView fitHeight="45.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@images/light_rain.png" />
+                                    <Image url="@images/moderate_rain_colored.png" />
                                  </image>
                               </ImageView>
                               <Label fx:id="labelRainProbability1" alignment="CENTER" text="50%" textFill="#4a5dec">
@@ -330,7 +350,7 @@
                            <children>
                               <ImageView fitHeight="45.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@images/light_rain.png" />
+                                    <Image url="@images/moderate_rain_colored.png" />
                                  </image>
                               </ImageView>
                               <Label fx:id="labelRainProbability2" text="50%" textFill="#4a5dec">
@@ -351,7 +371,7 @@
                         </Label>
                         <ImageView fx:id="imagePrediction3" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@images/light_rain.png" />
+                              <Image url="@images/light_rain_colored.png" />
                            </image>
                         </ImageView>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -377,7 +397,7 @@
                            <children>
                               <ImageView fitHeight="45.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@images/light_rain.png" />
+                                    <Image url="@images/moderate_rain_colored.png" />
                                  </image>
                               </ImageView>
                               <Label fx:id="labelRainProbability3" text="50%" textFill="#4a5dec">
@@ -398,7 +418,7 @@
                         </Label>
                         <ImageView fx:id="imagePrediction4" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@images/sun.png" />
+                              <Image url="@images/few_clouds_sun_colored.png" />
                            </image>
                         </ImageView>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -424,7 +444,7 @@
                            <children>
                               <ImageView fitHeight="45.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@images/light_rain.png" />
+                                    <Image url="@images/moderate_rain_colored.png" />
                                  </image>
                               </ImageView>
                               <Label fx:id="labelRainProbability4" text="50%" textFill="#4a5dec">
@@ -445,7 +465,7 @@
                         </Label>
                         <ImageView fx:id="imagePrediction5" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@images/storm.png" />
+                              <Image url="@images/storm_colored.png" />
                            </image>
                         </ImageView>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -471,7 +491,7 @@
                            <children>
                               <ImageView fitHeight="45.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@images/light_rain.png" />
+                                    <Image url="@images/moderate_rain_colored.png" />
                                  </image>
                               </ImageView>
                               <Label fx:id="labelRainProbability5" text="50%" textFill="#4a5dec">
@@ -489,11 +509,16 @@
       </VBox>
    </right>
    <bottom>
-      <HBox alignment="CENTER" prefHeight="81.0" prefWidth="891.0" BorderPane.alignment="CENTER">
+      <HBox alignment="BOTTOM_CENTER" prefHeight="116.0" prefWidth="1454.0" spacing="50.0" BorderPane.alignment="CENTER">
          <children>
-            <TextFlow fx:id="textflowDate" prefHeight="55.0" prefWidth="926.0">
+            <ImageView fitHeight="129.0" fitWidth="162.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/rabbit.png" />
+               </image>
+            </ImageView>
+            <TextFlow fx:id="textflowDate" prefHeight="118.0" prefWidth="970.0">
                <children>
-                  <Text fx:id="textDiem" fill="#4b9931" strokeType="OUTSIDE" strokeWidth="0.0" text="D" wrappingWidth="42.398834228515625">
+                  <Text fx:id="textDiem" fill="#4b9931" strokeType="OUTSIDE" strokeWidth="0.0" text="D" wrappingWidth="78.64453125">
                      <font>
                         <Font name="Gothic Leaf" size="72.0" />
                      </font>
@@ -532,14 +557,22 @@
                <HBox.margin>
                   <Insets />
                </HBox.margin>
+               <padding>
+                  <Insets top="50.0" />
+               </padding>
             </TextFlow>
+            <ImageView fitHeight="127.0" fitWidth="129.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/man.png" />
+               </image>
+            </ImageView>
          </children>
       </HBox>
    </bottom>
    <center>
       <HBox alignment="CENTER" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="472.0" fitWidth="597.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="520.0" fitWidth="611.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/bordermap.png" />
                </image>

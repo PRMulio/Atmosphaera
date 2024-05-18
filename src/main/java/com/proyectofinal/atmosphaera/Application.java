@@ -12,6 +12,7 @@ public class Application extends javafx.application.Application {
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("MainWindow.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Atmosphaera");
+        stage.setMaximized(true);
         stage.setScene(scene);
         stage.show();
     }
